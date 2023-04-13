@@ -1,0 +1,20 @@
+<h2>
+  List of Heroes is:
+  <span *ngIf="heroNames.length > 0">{{ heroNames.length }}</span>
+</h2>
+
+<h3 *ngIf="deletedHero; else notDeleted">
+  Last Hero removed: {{ deletedHero }}
+</h3>
+
+<button *ngIf="heroNames.length > 0" (click)="removeLastHero()">
+  Remove last Hero
+</button>
+
+<ng-template #notDeleted>
+  <h3>No heroes removed</h3>
+</ng-template>
+
+<ul>
+  <li *ngFor="let name of heroNames">{{ name }}</li>
+</ul>
